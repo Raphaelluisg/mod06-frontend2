@@ -28,7 +28,7 @@ export function LoginForm() {
 
         const userData = await api.login(loginPayload);
         setLoading(false);
-        if (userData.statusCode) {
+        if (!userData) {
             setError(true);
             return;
         }
@@ -41,7 +41,7 @@ export function LoginForm() {
                 <Loading/> 
             ): (
                 <StyledLoginForm>
-                    <h2>PlayStation</h2>
+                    <h2>PlayStation App</h2>
                     <StyledForm onSubmit={handleSubmit} error={error}>
                         <input placeholder="ID(Email)" name="email" />
                         <div>
